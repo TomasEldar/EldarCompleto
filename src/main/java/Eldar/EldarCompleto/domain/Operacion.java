@@ -4,8 +4,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
-
 
 @Entity
 @Data
@@ -16,9 +14,11 @@ public class Operacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idOperacion")
     private Long idOperacion;
 
     @ManyToOne
+    @JoinColumn(name = "idPersona")
     private Persona idPersona;
 
     @NotNull

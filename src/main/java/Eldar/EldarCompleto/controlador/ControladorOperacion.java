@@ -18,7 +18,9 @@ public class ControladorOperacion {
 
     @PostMapping("/operaciones/guardar")
     public void guardarOperacion(Operacion operacion) throws Exception{
-        operacionesService.guardar(operacion);
+        if(operacion.isValida()){
+            operacionesService.guardar(operacion);
+        }
     }
 
     @ExceptionHandler()

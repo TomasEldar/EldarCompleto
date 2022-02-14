@@ -4,7 +4,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,13 +31,10 @@ public class Persona {
     @Column(name = "dni")
     private String DNI;
 
-    @OneToMany
-    @JoinColumn(name = "idOperacion")
+    @OneToMany(mappedBy = "idPersona")
     private List<Operacion> operaciones = new ArrayList<>();
 
-    @OneToMany
-    @JoinColumn(name = "idTarjeta")
+    @OneToMany(mappedBy = "idPersona")
     private List<Tarjeta> tarjetas = new ArrayList<>();
-
 
 }

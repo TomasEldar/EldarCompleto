@@ -19,7 +19,4 @@ public class Marca implements Serializable {
     @NotEmpty
     private String nombre;
 
-    @NotNull
-    private int tasa;
-
 }
