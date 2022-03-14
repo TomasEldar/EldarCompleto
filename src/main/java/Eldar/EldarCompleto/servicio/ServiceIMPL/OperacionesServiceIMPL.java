@@ -2,6 +2,7 @@ package Eldar.EldarCompleto.servicio.ServiceIMPL;
 
 import Eldar.EldarCompleto.dao.OperacionDAO;
 import Eldar.EldarCompleto.domain.Operacion;
+import Eldar.EldarCompleto.dto.OperacionRequest;
 import Eldar.EldarCompleto.servicio.OperacionesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,14 +29,8 @@ public class OperacionesServiceIMPL implements OperacionesService {
     }
 
     @Override
-    @Transactional
-    public void eliminar(Operacion operacion) {
-        operacionDAO.delete(operacion);
-    }
-
-    @Override
     @Transactional(readOnly = true)
-    public Operacion encontrarOperacion(Operacion operacion) {
-        return(operacionDAO.findById(operacion.getIdOperacion())).orElse(null);
+    public Operacion encontrarOperacion(Long idOperacion) {
+        return(operacionDAO.findById(idOperacion).orElse(null));
     }
 }

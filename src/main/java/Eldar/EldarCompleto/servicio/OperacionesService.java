@@ -10,7 +10,5 @@ public interface OperacionesService {
 
     void guardar(Operacion operacion);
 
-    void eliminar(Operacion operacion);
-
-    Operacion encontrarOperacion(Operacion operacion);
+    Operacion encontrarOperacion(Long idOperacion);
 }

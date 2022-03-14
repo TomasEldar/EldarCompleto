@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class MarcaServiceIMPL implements MarcaService {
 
@@ -21,7 +23,13 @@ public class MarcaServiceIMPL implements MarcaService {
 
     @Override
     @Transactional(readOnly = true)
-    public Marca encontrarMarca(Marca marca) {
-        return(marcaDAO.findById(marca.getIdMarca())).orElse(null);
+    public Marca encontrarMarca(Long idMarca) {
+        return(marcaDAO.findById(idMarca).orElse(null));
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Marca> listarMarcas(){
+        return marcaDAO.findAll();
     }
 }

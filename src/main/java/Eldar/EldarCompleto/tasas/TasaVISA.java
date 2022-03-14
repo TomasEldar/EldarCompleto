@@ -2,7 +2,7 @@ package Eldar.EldarCompleto.tasas;
 
 import java.time.LocalDate;
 
-public class TasaVISA implements Tasas {
+public class TasaVISA implements Tasa {
 
     @Override
     public float calcularTasa() {

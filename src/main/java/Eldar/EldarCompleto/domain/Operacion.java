@@ -1,5 +1,6 @@
 package Eldar.EldarCompleto.domain;
 
+import Eldar.EldarCompleto.exception.OperacionNotValidException;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -21,6 +22,10 @@ public class Operacion {
     @JoinColumn(name = "idPersona")
     private Persona idPersona;
 
+    @ManyToOne
+    @JoinColumn(name = "idTarjeta")
+    private Tarjeta tarjeta;
+
     @NotNull
     @Column(name = "monto")
     private double monto;
@@ -29,11 +34,11 @@ public class Operacion {
     @Column(name = "tasaOperacion")
     private float tasaOperacion;
 
-    public boolean isValida(){
+    public boolean operacionValida(){
         if (this.monto < 1000){
             return true;
         } else {
-            return false;
+            throw new OperacionNotValidException("La operacion no es valida");
         }
     }
 }

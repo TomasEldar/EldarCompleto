@@ -13,5 +13,5 @@ public interface TarjetaService {
 
     void eliminar(Tarjeta tarjeta);
 
-    Tarjeta encontrarTarjeta (Tarjeta tarjeta);
+    Tarjeta encontrarTarjeta (Long idTarjeta);
 }

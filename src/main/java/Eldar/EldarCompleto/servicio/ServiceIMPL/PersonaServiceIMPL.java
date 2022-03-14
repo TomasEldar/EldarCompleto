@@ -7,19 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @Service
 public class PersonaServiceIMPL implements PersonaService {
 
     @Autowired
     private PersonaDAO personaDAO;
-
-    @Override
-    @Transactional(readOnly = true)
-    public List<Persona> listarPersonas() {
-        return (personaDAO.findAll());
-    }
 
     @Override
     @Transactional
@@ -35,7 +27,7 @@ public class PersonaServiceIMPL implements PersonaService {
 
     @Override
     @Transactional(readOnly = true)
-    public Persona encontrarPersona(Persona persona) {
-        return (personaDAO.findById(persona.getIdPersona()).orElse(null));
+    public Persona encontrarPersona(Long idPersona) {
+        return (personaDAO.findById(idPersona).orElse(null));
     }
 }

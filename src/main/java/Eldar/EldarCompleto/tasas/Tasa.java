@@ -1,6 +1,6 @@
 package Eldar.EldarCompleto.tasas;
 
-public interface Tasas {
+public interface Tasa {
 
     float calcularTasa();
 }

@@ -35,7 +35,7 @@ public class TarjetaServiceIMPL implements TarjetaService {
 
     @Override
     @Transactional(readOnly = true)
-    public Tarjeta encontrarTarjeta(Tarjeta tarjeta) {
-        return (tarjetaDAO.findById(tarjeta.getIdTarjeta()).orElse(null));
+    public Tarjeta encontrarTarjeta(Long idTarjeta) {
+        return (tarjetaDAO.findById(idTarjeta).orElse(null));
     }
 }
